@@ -43,13 +43,6 @@ def to_line_img(img):
     line_img = line_img / maxvalue
     return line_img
 
-# ???
-def pixel_to_pixel(x):
-    return x
-
-def pixel_to_wavelength(x):
-    return x*2
-
 def plot_graph(img):
     x,y,xx,yy = plt.axis()
     plt.cla()
@@ -57,16 +50,11 @@ def plot_graph(img):
     if (x, y, xx, yy) != (0.0, 1.0, 0.0, 1.0):
         plt.axis([x, y, xx, yy])
         
-    plt.xlabel('pixel')
-    plt.ylabel('intensity')
-    ax = plt.subplot()
-    secax = ax.secondary_xaxis('top', functions=(pixel_to_wavelength, pixel_to_pixel))
-    secax.set_xlabel('wavelength')
-    secax.grid(True)
+    plt.xlabel('Wavelength')
+    plt.ylabel('Intensity')
 
     #plt.savefig('graph.png')
     plt.pause(0.01)
-    #plt.show()
     
 def capture():
     global is_init
