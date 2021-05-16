@@ -38,6 +38,9 @@ def to_gray(img):
 
 #line_img image    
 def to_line_img(img):
+    # ideally maxvalue would be defined by width of pattern, but my pattern have a bit of angle to items
+    # So image is cropped conservatively and this is approximation. You can see when you oversaturate the
+    # camera in graph though...
     maxvalue = 255 * (img.shape[0] / 3)
     line_img = np.sum(img, 0)
     line_img = line_img / maxvalue
